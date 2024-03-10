@@ -3,7 +3,6 @@
     $email = $title = $ingredients = $procedure = '';
 	$errors = array('email' => '', 'title' => '', 'ingredients' => '', 'procedure' => '');
     if(isset($_POST['submit'])){
-		// check email
 		if(empty($_POST['email'])){
 			$errors['email'] = 'An email is required';
 		} else{
@@ -12,8 +11,6 @@
 				$errors['email'] = 'Email address is not valid';
 			}
 		}
-
-		// check title
 		if(empty($_POST['title'])){
 			$errors['title'] = 'A title is required';
 		} else{
@@ -22,8 +19,6 @@
 				$errors['title'] = 'Title must be letters and spaces only';
 			}
 		}
-
-		// check ingredients
 		if(empty($_POST['ingredients'])){
 			$errors['ingredients'] = 'At least one ingredient is required';
 		} else{
@@ -32,8 +27,6 @@
 				$errors['ingredients'] = 'Ingredients must be a comma separated list';
 			}
 		}
-
-		//check procedure
         $procedure = trim($_POST['procedure'], " ");
         if(strlen($procedure) == 0){
 			$errors['procedure'] = 'Steps to prepare are necessary.';
@@ -43,17 +36,12 @@
 			$title = mysqli_real_escape_string($conn, $_POST['title']);
 			$ingredients = mysqli_real_escape_string($conn, $_POST['ingredients']);
             $procedure = mysqli_real_escape_string($conn, $_POST['procedure']);
-
 			$sql = "INSERT INTO recipe(title,email,ingredients,procedure_steps) VALUES('$title','$email','$ingredients','$procedure')";
-
 			if(mysqli_query($conn, $sql)){
 				header('Location: index.php');
 			}
 		}
-
-	} // end POST check
-
-
+	}
 ?>
 
 <!DOCTYPE html>

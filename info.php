@@ -1,7 +1,5 @@
 <?php
     include('config/database_connect.php');
-    
-
     if(isset($_GET['id'])) {
         $id = mysqli_real_escape_string($conn, $_GET['id']);
         $sql = "SELECT * FROM recipe WHERE id = $id";
@@ -10,12 +8,7 @@
 
         mysqli_free_result($result);
         mysqli_close($conn);
-
     }
-
-
-
-
 ?>
 <!DOCTYPE html>
 <html>
@@ -30,5 +23,4 @@
         <p><?php echo htmlspecialchars($recipes['procedure_steps']);?></p>
     </div>
     <?php include('templates/footer.php'); ?>
-
 <html>
