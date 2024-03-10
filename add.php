@@ -3,7 +3,6 @@
     $email = $title = $ingredients = $procedure = '';
 	$errors = array('email' => '', 'title' => '', 'ingredients' => '', 'procedure' => '');
     if(isset($_POST['submit'])){
-		
 		// check email
 		if(empty($_POST['email'])){
 			$errors['email'] = 'An email is required';
@@ -34,6 +33,7 @@
 			}
 		}
 
+		//check procedure
         $procedure = trim($_POST['procedure'], " ");
         if(strlen($procedure) == 0){
 			$errors['procedure'] = 'Steps to prepare are necessary.';
@@ -44,15 +44,10 @@
 			$ingredients = mysqli_real_escape_string($conn, $_POST['ingredients']);
             $procedure = mysqli_real_escape_string($conn, $_POST['procedure']);
 
-			// create sql
 			$sql = "INSERT INTO recipe(title,email,ingredients,procedure_steps) VALUES('$title','$email','$ingredients','$procedure')";
 
-			// save to db and check
 			if(mysqli_query($conn, $sql)){
-				// success
 				header('Location: index.php');
-			} else {
-				echo 'query error: ';
 			}
 		}
 

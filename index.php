@@ -10,16 +10,11 @@
 ?>
 <!DOCTYPE html>
 <html>
-	
 	<?php include('templates/header.php'); ?>
-
 	<h4 class="center grey-text">Recipes!</h4>
-
 	<div class="container">
 		<div class="row">
-
 			<?php foreach($recipes as $recipe): ?>
-
 				<div class="col s6 m4">
 					<div class="card z-depth-0">
 						<div class="card-content center">
@@ -35,13 +30,9 @@
 						</div>
 					</div>
 				</div>
-
 			<?php endforeach; ?>
-
 		</div>
 	</div>
-
 	<?php include('templates/footer.php'); ?>
-
 </html>
 
