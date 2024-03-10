@@ -1,7 +1,11 @@
 <?php
+	session_start();
     include('config/database_connect.php');
     $email = $title = $ingredients = $procedure = '';
 	$errors = array('email' => '', 'title' => '', 'ingredients' => '', 'procedure' => '');
+	if(isset($_SESSION['email']) && $_SESSION['status'] == "Logged In") {
+		$email = $_SESSION['email'];
+	}
     if(isset($_POST['submit'])){
 		if(empty($_POST['email'])){
 			$errors['email'] = 'An email is required';

@@ -1,19 +1,12 @@
 <?php
-	session_start();
+    session_start();
     include('config/database_connect.php');
-    $sql = 'SELECT title, ingredients, id FROM recipe ORDER BY created_at';
+    $username = mysqli_real_escape_string($conn, $_SESSION['email']);
+    $sql = "SELECT * FROM recipe WHERE email='$username'";
     $result = mysqli_query($conn, $sql);
     $recipes = mysqli_fetch_all($result, MYSQLI_ASSOC);
-
     mysqli_free_result($result);
-    mysqli_close($conn);
-
-	if(isset($_GET['action']) && $_GET['action'] == "lgd") {
-		$_SESSION['status'] = "Logged Out";
-		$_SESSION['email'] = "";
-		echo "LOGGED OUT";
-	}
-
+    mysqli_close($conn);  
 ?>
 <!DOCTYPE html>
 <html>
@@ -42,4 +35,3 @@
 	</div>
 	<?php include('templates/footer.php'); ?>
 </html>
-
