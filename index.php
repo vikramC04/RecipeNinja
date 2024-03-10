@@ -11,7 +11,6 @@
 	if(isset($_GET['action']) && $_GET['action'] == "lgd") {
 		$_SESSION['status'] = "Logged Out";
 		$_SESSION['email'] = "";
-		echo "LOGGED OUT";
 	}
 
 ?>
