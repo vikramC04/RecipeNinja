@@ -8,7 +8,6 @@ Welcome to my Recipe Blog Posting Website! This project allows users to create a
 2. Create Blog Posts: Once logged in, users can create new blog posts to share their recipes.
 3. View All Posts: Users can view all blog posts shared by other users.
 4. View Own Posts: Users have access to a personalized dashboard where they can view all the posts they've shared.
-5. Edit and Delete Posts: Users can edit or delete their own posts as needed.
 
 # Technologies Used
 1. PHP: The backend of the website is powered by PHP to handle user authentication, data storage, and blog post management.
