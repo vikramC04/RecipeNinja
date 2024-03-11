@@ -1,20 +1,10 @@
 <?php
 	session_start();
     include('config/database_connect.php');
-    $email = $title = $ingredients = $procedure = '';
-	$errors = array('email' => '', 'title' => '', 'ingredients' => '', 'procedure' => '');
-	if(isset($_SESSION['email']) && $_SESSION['status'] == "Logged In") {
-		$email = $_SESSION['email'];
-	}
+	$email = $_SESSION['email'];
+    $title = $ingredients = $procedure = '';
+	$errors = array('title' => '', 'ingredients' => '', 'procedure' => '');
     if(isset($_POST['submit'])){
-		if(empty($_POST['email'])){
-			$errors['email'] = 'An email is required';
-		} else{
-			$email = $_POST['email'];
-			if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
-				$errors['email'] = 'Email address is not valid';
-			}
-		}
 		if(empty($_POST['title'])){
 			$errors['title'] = 'A title is required';
 		} else{
@@ -36,7 +26,7 @@
 			$errors['procedure'] = 'Steps to prepare are necessary.';
 		} 
 		if(!array_filter($errors)){
-			$email = mysqli_real_escape_string($conn, $_POST['email']);
+			$email = mysqli_real_escape_string($conn, $email);
 			$title = mysqli_real_escape_string($conn, $_POST['title']);
 			$ingredients = mysqli_real_escape_string($conn, $_POST['ingredients']);
             $procedure = mysqli_real_escape_string($conn, $_POST['procedure']);
@@ -55,9 +45,6 @@
 	<section class="container grey-text">
 		<h4 class="center">Add a Recipe</h4>
 		<form class="white" action="add.php" method="POST">
-			<label>Your Email</label>
-			<input type="text" name="email" value="<?php echo htmlspecialchars($email) ?>">
-			<div class="red-text"><?php echo $errors['email']; ?></div>
 			<label>Recipe Title</label>
 			<input type="text" name="title" value="<?php echo htmlspecialchars($title) ?>">
 			<div class="red-text"><?php echo $errors['title']; ?></div>
