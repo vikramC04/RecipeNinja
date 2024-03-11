@@ -23,16 +23,21 @@
         if(!array_filter($errors)){
 			$username = mysqli_real_escape_string($conn, $_POST['username']);
 			$password = mysqli_real_escape_string($conn, $_POST['password']);
+
             $sql = "SELECT * FROM users WHERE username='$username' AND pwd='$password'";
             $result = mysqli_query($conn, $sql);
             $all_users = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
+            $sql_checkemail = "SELECT * FROM users WHERE username='$username'";
+            $result_email = mysqli_query($conn, $sql_checkemail);
+            $all_email_matches = mysqli_fetch_all($result_email, MYSQLI_ASSOC);
+
             if($_GET['action'] == "signup") {
-                if(empty($all_users)) {
+                if(empty($all_email_matches)) {
                     $sql2 = "INSERT INTO users(username,pwd) VALUES('$username','$password')";
                     if(mysqli_query($conn, $sql2)){
-                        header('Location: index.php');
-                    }
-                    header('Location: index.php');
+				        header('Location: index.php');
+			        }
                 } else {
                     $errors['username'] = "Email Already in Use";
                 }
