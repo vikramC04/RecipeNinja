@@ -4,7 +4,7 @@ Welcome to my Recipe Blog Posting Website! This project allows users to create a
 
 # Features
 User Authentication: Users can sign up for a new account or log in with existing credentials.
-Create Blog Posts: Once logged in, users can create new blog posts to share their recipes.
+\n Create Blog Posts: Once logged in, users can create new blog posts to share their recipes.
 View All Posts: Users can view all blog posts shared by other users.
 View Own Posts: Users have access to a personalized dashboard where they can view all the posts they've shared.
 Edit and Delete Posts: Users can edit or delete their own posts as needed.
