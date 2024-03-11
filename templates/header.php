@@ -30,8 +30,8 @@
     <div class="container">
       <a href="./index.php" class="brand-logo brand-text">Recipe Ninja</a>
       <ul id="nav-mobile" class="right hide-on-small-and-down">
-        <li><a href="./add.php" class="btn brand z-depth-0">Add a Recipe</a></li>
         <?php if($status == "user"): ?>
+          <li><a href="./add.php" class="btn brand z-depth-0">Add a Recipe</a></li>
           <li><a href="./posts.php" class="btn brand z-depth-0">My Posts</a></li>
           <li><a href="./index.php?action=lgd" class="btn brand z-depth-0">Log Out</a></li>
         <?php else:  ?>
