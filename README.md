@@ -11,9 +11,9 @@ Welcome to my Recipe Blog Posting Website! This project allows users to create a
 5. Edit and Delete Posts: Users can edit or delete their own posts as needed.
 
 # Technologies Used
-PHP: The backend of the website is powered by PHP to handle user authentication, data storage, and blog post management.
-MySQL: MySQL database is used to store user account information and blog post data.
-HTML/CSS: Frontend interface is designed using HTML and styled with CSS for a clean and user-friendly experience.
+1. PHP: The backend of the website is powered by PHP to handle user authentication, data storage, and blog post management.
+2. MySQL: MySQL database is used to store user account information and blog post data.
+3. HTML/CSS: Frontend interface is designed using HTML and styled with CSS for a clean and user-friendly experience.
 
 # Getting Started
 
