@@ -16,4 +16,4 @@ Welcome to my Recipe Blog Posting Website! This project allows users to create a
 
 # Getting Started
 
-Navigate to https://recipeninja.000webhostapp.com/index.php and start exploring!
+Navigate to http://recipeninja.infinityfreeapp.com/index.php and start exploring!
